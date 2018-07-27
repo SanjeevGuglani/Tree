@@ -9,6 +9,8 @@ public class RightSibling {
         }
         if(node.rightSibling!=null) {
             System.out.println(node.data + "---->" + node.rightSibling.data);
+        }else{
+            System.out.println(node.data + "----> null");
         }
         tranverse(node.left);
         tranverse(node.right);
@@ -19,7 +21,7 @@ public class RightSibling {
         if(node==null || (node.left==null && node.right==null)){
             return;
         }
-        Node temp;
+        Node temp=null;
         Node rightSibling=node.rightSibling;
         while(rightSibling!=null){
             if(rightSibling.left!=null){
@@ -32,11 +34,10 @@ public class RightSibling {
         }
         if(node.left!=null && node.right!=null){
             node.left.rightSibling = node.right;
-        }
-        if(node.left!=null){
-            node.left.rightSibling = rightSibling;
-        }else {
-            node.right.rightSibling = rightSibling;
+        } else if(node.left!=null){
+            node.left.rightSibling = temp;
+        } else if(node.right!=null){
+            node.right.rightSibling = temp;
         }
 
         fillRightSibling(node.right);
@@ -57,8 +58,6 @@ public class RightSibling {
         node.right.right.data=6;
         node.left.left.right=new Node();
         node.left.left.right.data=7;
-        node.right.left.right=new Node();
-        node.right.left.right.data=8;
         node.right.right.right=new Node();
         node.right.right.right.data=9;
         fillRightSibling(node);
