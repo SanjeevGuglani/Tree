@@ -40,7 +40,7 @@ public class RightSibling {
             node.right.rightSibling = temp;
         }
 
-        fillRightSibling(node.right);
+        fillRightSibling(node.right); ///Think why right necessary first
         fillRightSibling(node.left);
     }
     public static void main(String[] args) {
@@ -58,6 +58,8 @@ public class RightSibling {
         node.right.right.data=6;
         node.left.left.right=new Node();
         node.left.left.right.data=7;
+        node.right.left.right=new Node();
+        node.right.left.right.data=8;
         node.right.right.right=new Node();
         node.right.right.right.data=9;
         fillRightSibling(node);
