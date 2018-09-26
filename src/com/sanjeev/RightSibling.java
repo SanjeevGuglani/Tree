@@ -1,5 +1,7 @@
 package com.sanjeev;
 
+import java.util.Queue;
+
 public class RightSibling {
 
 
@@ -16,6 +18,11 @@ public class RightSibling {
         tranverse(node.right);
     }
 
+    public  static void fillRightSiblingWithLevelTranversal(Queue<Node> node){
+        if(node==null){
+            return;
+        }
+    }
 
     public static void fillRightSibling(Node node){
         if(node==null || (node.left==null && node.right==null)){
